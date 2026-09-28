@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro do Aluno</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #1a202c;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: #3182ce;
+    }
+
+    .btn-continuar {
+      width: 100%;
+      padding: 12px;
+      background-color: #3182ce;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.2s;
+    }
+
+    .btn-continuar:hover {
+      background-color: #2b6cb0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>2. Cadastro do Aluno</h2>
+    
+    <form id="cadastroAlunoForm">
+      <!-- Nome -->
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite o nome completo" required>
+      </div>
+
+      <!-- CPF -->
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required>
+      </div>
+
+      <!-- Data de Nascimento -->
+      <div class="form-group">
+        <label for="dataNascimento">Data de Nascimento</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required>
+      </div>
+
+      <!-- Série e Turno -->
+      <div class="form-group">
+        <label for="serie">Série</label>
+        <select id="serie" name="serie" required>
+          <option value="">Selecione a série</option>
+          <option value="1º Ano">1º Ano</option>
+          <option value="2º Ano">2º Ano</option>
+          <option value="3º Ano">3º Ano</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="turno">Turno</label>
+        <select id="turno" name="turno" required>
+          <option value="">Selecione o turno</option>
+          <option value="Manhã">Manhã</option>
+          <option value="Tarde">Tarde</option>
+          <option value="Noite">Noite</option>
+        </select>
+      </div>
+
+      <!-- Botão Continuar -->
+      <button type="submit" class="btn-continuar">Continuar</button>
+    </form>
+  </div>
+
+  <script>
+    // Formatação automática do CPF
+    const cpfInput = document.getElementById('cpf');
+    cpfInput.addEventListener('input', (e) => {
+      let value = e.target.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.slice(0, 11);
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d)/, '$1.$2');
+      value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      e.target.value = value;
+    });
+
+    // Ação do Botão Continuar
+    document.getElementById('cadastroAlunoForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Dados do aluno submetidos com sucesso!');
+    });
+  </script>
+
+</body>
+</html>
