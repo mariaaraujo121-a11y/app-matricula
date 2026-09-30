@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação da Matrícula</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Confirmação da Matrícula</h1>
+
+            <p class="subtitulo">
+                Confira os dados antes de finalizar sua matrícula.
+            </p>
+
+            <!-- Resumo dos dados -->
+            <div class="resumo">
+
+                <h2>Resumo dos dados</h2>
+
+                <div class="dados">
+                    <p><strong>Aluno:</strong> João da Silva</p>
+                    <p><strong>CPF:</strong> 000.000.000-00</p>
+                    <p><strong>Data de nascimento:</strong> 10/05/2010</p>
+                    <p><strong>Série:</strong> 2º ano</p>
+                    <p><strong>Turno:</strong> Matutino</p>
+                </div>
+
+                <div class="responsavel">
+                    <h3>Responsável</h3>
+
+                    <p><strong>Nome:</strong> Maria da Silva</p>
+                    <p><strong>CPF:</strong> 000.000.000-00</p>
+                    <p><strong>Parentesco:</strong> Mãe</p>
+                    <p><strong>Telefone:</strong> (00) 00000-0000</p>
+                    <p><strong>E-mail:</strong> exemplo@email.com</p>
+                </div>
+
+            </div>
+
+            <!-- Botão editar -->
+            <button class="editar">Editar dados</button>
+
+            <!-- Termos -->
+            <div class="termos">
+                <label>
+                    <input type="checkbox" id="aceite">
+                    Li e aceito os termos da matrícula.
+                </label>
+            </div>
+
+            <!-- Finalizar -->
+            <button class="finalizar" onclick="finalizarMatricula()">
+                Finalizar matrícula
+            </button>
+
+            <!-- Mensagem -->
+            <div id="mensagem" class="mensagem">
+                Matrícula concluída com sucesso!
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        function finalizarMatricula() {
+
+            const aceite = document.getElementById("aceite");
+            const mensagem = document.getElementById("mensagem");
+
+            if (!aceite.checked) {
+                alert("Você precisa aceitar os termos da matrícula.");
+                return;
+            }
+
+            mensagem.style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f6fa;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+}
+
+.card {
+    width: 100%;
+    max-width: 650px;
+
+    background-color: white;
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+    text-align: center;
+    color: #1769aa;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.resumo {
+    background-color: #f7f9fb;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+
+    padding: 20px;
+}
+
+.resumo h2 {
+    color: #1769aa;
+    margin-bottom: 15px;
+}
+
+.dados p,
+.responsavel p {
+    margin-bottom: 10px;
+}
+
+.responsavel {
+    margin-top: 20px;
+    padding-top: 15px;
+
+    border-top: 1px solid #ddd;
+}
+
+.responsavel h3 {
+    color: #1769aa;
+    margin-bottom: 12px;
+}
+
+.editar {
+    width: 100%;
+    padding: 12px;
+
+    margin-top: 20px;
+
+    background-color: white;
+    color: #1769aa;
+
+    border: 2px solid #1769aa;
+    border-radius: 8px;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.editar:hover {
+    background-color: #1769aa;
+    color: white;
+}
+
+.termos {
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.termos input {
+    margin-right: 8px;
+}
+
+.finalizar {
+    width: 100%;
+    padding: 14px;
+
+    background-color: #1769aa;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.finalizar:hover {
+    background-color: #0d4f82;
+}
+
+.mensagem {
+    display: none;
+
+    margin-top: 20px;
+    padding: 15px;
+
+    text-align: center;
+
+    background-color: #e8f5e9;
+    color: #2e7d32;
+
+    border: 1px solid #81c784;
+    border-radius: 8px;
+
+    font-weight: bold;
+}
